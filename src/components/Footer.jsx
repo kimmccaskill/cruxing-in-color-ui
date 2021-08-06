@@ -1,14 +1,15 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core';
-import {NavLink as RouterLink} from 'react-router-dom';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import { NavLink as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F0EEEE',
+    backgroundColor: "#F0EEEE",
     flexGrow: 1,
-    display: 'flex',
+    display: "flex",
+    height: "20vh",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -20,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
   links: {
     padding: theme.spacing(4),
     marginRight: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   link: {
     paddingBottom: theme.spacing(1),
@@ -33,7 +34,7 @@ const Footer = () => {
   const classes = useStyles();
 
   const path = window.location.pathname;
-  console.log('path', path);
+  console.log("path", path);
   return (
     <div className={classes.root}>
       <Typography variant="h6" className={classes.title}>

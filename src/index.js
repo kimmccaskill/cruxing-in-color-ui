@@ -1,15 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import {
   createMuiTheme,
   ThemeProvider,
   responsiveFontSizes,
-} from '@material-ui/core/styles';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+} from "@material-ui/core/styles";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-let theme = createMuiTheme();
+let theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Poppins"].join(","),
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        borderRadius: 0,
+      },
+    },
+  },
+});
 theme = responsiveFontSizes(theme);
 
 ReactDOM.render(
@@ -18,7 +29,7 @@ ReactDOM.render(
       <App />
     </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

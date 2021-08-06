@@ -1,13 +1,13 @@
-import React from 'react';
-import {Container, Typography, Paper} from '@material-ui/core';
-import createDOMPurify from 'dompurify';
-import {makeStyles} from '@material-ui/core/styles';
-import HeaderImage from '../components/HeaderImage';
-import groupImg from '../images/home-img.png';
+import React from "react";
+import { Container, Typography, Paper } from "@material-ui/core";
+import createDOMPurify from "dompurify";
+import { makeStyles } from "@material-ui/core/styles";
+import HeaderImage from "../components/HeaderImage";
+import groupImg from "../images/home-img.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // width: '100vw',
+    minHeight: "80vh",
   },
   mission: {},
   textBlock: {
@@ -24,19 +24,21 @@ const Home = () => {
     <Container className={classes.root} maxWidth={false}>
       <HeaderImage src={groupImg} alt="Group of CiC members" />
       <Container className={classes.mission} maxWidth="md">
-        <Typography className={classes.textBlock} variant="h4" align="center">
+        <Typography className={classes.textBlock} variant="h5" align="center">
           Our mission is to connect, educate, and inspire self-identified
           climbers of color in the Denver area by organizing meetups,
           scholarships and by offering free mentorship and access to gear.
         </Typography>
-        <Typography className={classes.textBlock} variant="h4" align="center">
+        <Typography className={classes.textBlock} variant="h5" align="center">
           We aim to foster representation at the crag and gym and break down
           barriers that systemically keep people of color out of these spaces.
         </Typography>
       </Container>
       {
         <div
-          dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(instagramFeed)}}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(instagramFeed),
+          }}
         />
       }
     </Container>
