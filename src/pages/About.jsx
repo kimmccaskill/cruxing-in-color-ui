@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   intro: {
     margin: theme.spacing(8),
+    [theme.breakpoints.down("sm")]: {
+      margin: theme.spacing(2),
+    },
   },
 }));
 

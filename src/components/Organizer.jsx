@@ -6,15 +6,32 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     padding: theme.spacing(4),
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(2),
+    },
   },
   img: {
-    height: "500px",
-    width: "500px",
     objectFit: "cover",
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0),
+      paddingBottom: theme.spacing(4),
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "-webkit-fill-available",
+    },
   },
   descriptionBox: {
     backgroundColor: "#f5f5f5",
     padding: theme.spacing(6),
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0),
+    },
   },
   name: {
     paddingBottom: theme.spacing(4),
