@@ -87,6 +87,8 @@ const Events = () => {
                 date={date.toLocaleString(DateTime.DATE_FULL)}
                 title={event.title}
                 location={event.location}
+                buttonTitle={event.buttonTitle}
+                buttonLink={event.buttonLink}
               />
             );
           })}
