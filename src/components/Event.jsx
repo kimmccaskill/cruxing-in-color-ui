@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   details: {
     marginTop: theme.spacing(1),
   },
+  button: {
+    marginTop: theme.spacing(1),
+  },
 }));
 
 const Event = (props) => {
