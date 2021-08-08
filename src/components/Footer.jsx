@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(2),
+    },
   },
   link: {
     paddingBottom: theme.spacing(1),
@@ -77,7 +80,7 @@ const Footer = () => {
         >
           Donate
         </Link>
-        <Link
+        {/* <Link
           component={RouterLink}
           to="/resources"
           color="inherit"
@@ -85,7 +88,7 @@ const Footer = () => {
           className={classes.link}
         >
           Resources
-        </Link>
+        </Link> */}
         <Link
           component={RouterLink}
           to="/about"
