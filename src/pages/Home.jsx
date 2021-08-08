@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Typography, Paper } from "@material-ui/core";
-import createDOMPurify from "dompurify";
+import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import HeaderImage from "../components/HeaderImage";
 import groupImg from "../images/home-img.png";
+import EmbedSocialWidget from "../components/EmbedSocialWidjet";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,8 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(6),
   },
 }));
-const DOMPurify = createDOMPurify(window);
-const instagramFeed = `<div class="embedsocial-hashtag" data-ref="b9199a7137a730ec4503ba7871936a60dcbec424" ><a class="feed-powered-by-es" href="https://embedsocial.com/products/embedfeed/" target="_blank" title="Powered by EmbedSocial">Powered by EmbedSocial<span>→</span></a></div><script>(function(d, s, id){var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js);}(document, "script", "EmbedSocialHashtagScript"));</script>`;
 
 const Home = () => {
   const classes = useStyles();
@@ -34,13 +32,7 @@ const Home = () => {
           barriers that systemically keep people of color out of these spaces.
         </Typography>
       </Container>
-      {
-        <div
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(instagramFeed),
-          }}
-        />
-      }
+      <EmbedSocialWidget />
     </Container>
   );
 };
