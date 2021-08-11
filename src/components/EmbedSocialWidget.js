@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class EmbedSocialWidget extends React.Component {
   render() {
@@ -18,9 +18,9 @@ class EmbedSocialWidget extends React.Component {
       }
       js = d.createElement(s);
       js.id = id;
-      js.src = "https://embedsocial.com/cdn/ht.js";
-      d.getElementsByTagName("head")[0].appendChild(js);
-    })(document, "script", "EmbedSocialHashtagScript");
+      js.src = 'https://embedsocial.com/cdn/ht.js';
+      d.getElementsByTagName('head')[0].appendChild(js);
+    })(document, 'script', 'EmbedSocialHashtagScript');
   }
 }
 

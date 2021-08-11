@@ -1,13 +1,13 @@
-import React from "react";
-import { Container, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import HeaderImage from "../components/HeaderImage";
-import groupImg from "../images/home-img.png";
-import EmbedSocialWidget from "../components/EmbedSocialWidjet";
+import React from 'react';
+import {Container, Typography} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+import HeaderImage from '../components/HeaderImage';
+import groupImg from '../images/home-img.png';
+import EmbedSocialWidget from '../components/EmbedSocialWidget';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "80vh",
+    minHeight: '80vh',
   },
   mission: {},
   textBlock: {
