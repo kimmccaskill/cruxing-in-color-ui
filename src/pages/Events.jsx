@@ -67,9 +67,11 @@ const Events = () => {
         <div className={classes.eventsContainer}>
           {futureEvents.map((event) => {
             const date = DateTime.fromISO(event.date);
+            console.log('DATE', date)
             return (
               <Event
                 date={date.toLocaleString(DateTime.DATE_FULL)}
+                time={date.toLocaleString(DateTime.TIME_SIMPLE)}
                 title={event.title}
                 location={event.location}
               />
