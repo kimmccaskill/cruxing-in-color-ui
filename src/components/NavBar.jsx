@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: "solid 1px black",
     },
   },
+  homeLink: {
+    flexGrow: 1,
+    cursor: "pointer",
+  },
   link: {
     color: "black",
     paddingBottom: theme.spacing(1),
@@ -144,9 +148,11 @@ const NavBar = () => {
   return (
     <AppBar position="sticky" color="default" elevation={0}>
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Cruxing in Color
-        </Typography>
+        <Link to="/home" underline="none" className={classes.homeLink}>
+          <Typography variant="h6" className={classes.title}>
+            Cruxing in Color
+          </Typography>
+        </Link>
         <div>
           {matches && (
             <Menu
