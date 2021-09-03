@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
 import { NavLink as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import Logo from "../images/full-logo.png";
@@ -34,20 +33,15 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: "100%",
-    // width: "150px",
+    maxHeight: "150px",
   },
 }));
 
 const Footer = () => {
   const classes = useStyles();
 
-  const path = window.location.pathname;
-  console.log("path", path);
   return (
     <div className={classes.root}>
-      {/* <Typography variant="h6" className={classes.title}>
-        Cruxing in Color
-      </Typography> */}
       <div className={classes.title}>
         <img className={classes.logo} src={Logo} alt="Cruxing in Color" />
       </div>
