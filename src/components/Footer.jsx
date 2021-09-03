@@ -1,15 +1,16 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import {Typography} from '@material-ui/core';
-import {NavLink as RouterLink} from 'react-router-dom';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import { NavLink as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
+import Logo from "../images/full-logo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#F0EEEE',
+    backgroundColor: "#F0EEEE",
     flexGrow: 1,
-    display: 'flex',
-    height: '10rem',
+    display: "flex",
+    height: "10rem",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -21,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
   links: {
     padding: theme.spacing(2),
     marginRight: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    [theme.breakpoints.down('xs')]: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.down("xs")]: {
       padding: theme.spacing(2),
     },
   },
@@ -31,18 +32,25 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(1),
     marginLeft: theme.spacing(2),
   },
+  logo: {
+    height: "100%",
+    // width: "150px",
+  },
 }));
 
 const Footer = () => {
   const classes = useStyles();
 
   const path = window.location.pathname;
-  console.log('path', path);
+  console.log("path", path);
   return (
     <div className={classes.root}>
-      <Typography variant="h6" className={classes.title}>
+      {/* <Typography variant="h6" className={classes.title}>
         Cruxing in Color
-      </Typography>
+      </Typography> */}
+      <div className={classes.title}>
+        <img className={classes.logo} src={Logo} alt="Cruxing in Color" />
+      </div>
       <div className={classes.links}>
         <Link
           component={RouterLink}
