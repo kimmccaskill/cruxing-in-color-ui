@@ -74,6 +74,9 @@ const Events = () => {
                 time={date.toLocaleString(DateTime.TIME_SIMPLE)}
                 title={event.title}
                 location={event.location}
+                description={event.description}
+                buttonTitle={event.buttonTitle}
+                buttonLink={event.buttonLink}
               />
             );
           })}
