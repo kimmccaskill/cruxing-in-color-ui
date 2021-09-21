@@ -25,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: "100%",
   },
+  list: {
+    margin: theme.spacing(2),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 }));
 
 const About = () => {
@@ -61,15 +67,49 @@ const About = () => {
         <Box>
           CIC was born out of a small meetup group organized by Jalen Bazile
           called Melanin Climbers of Colorado that began connecting in December
-          2019. When COVID left the account silent all spring and summer, Jalen
-          asked Shara to take over the account while he moved towards his
-          passion of diversifying cycling. In September 2020, Shara revived and
-          rebranded the account as Cruxing in Color and paired up with Menesha
-          and Enrique. Since then, CIC has reached 5x as many followers and the
-          group has been hosting meetups around the greater Denver area
-          averaging around 60 climbers a night.
+          2019. In September 2020, Shara revived and rebranded the account as
+          Cruxing in Color and paired up with Menesha and Enrique. Since then,
+          CIC has expanded its vision and reach and the group has been hosting
+          meetups around the greater Denver area averaging around 60 to 80
+          climbers a night.
         </Box>
       </Typography>
+      <Typography align="center" variant="h6">
+        <Box>In less than a year, what have we been up to?</Box>
+      </Typography>
+      <div className={classes.list}>
+        <Typography>
+          <Box sx={{ textAlign: "center" }}>
+            <ul>
+              <li>
+                Offering gym membership scholarships for underrepresented
+                climbers
+              </li>
+              <li>
+                Partnering with industry leaders to provide our community with
+                high quality gear
+              </li>
+              <li>
+                Amplifying BIPOC voices by highlighting climbers of all levels
+                in our community
+              </li>
+              <li>
+                Hosting monthly meetups and clinics at gyms including discounted
+                day rates and free rentals
+              </li>
+              <li>
+                Leveraging Q&As and "Terminology Tuesday" to democratize
+                information access{" "}
+              </li>
+              <li>Organizing stewardship days at local crags </li>
+              <li>
+                Helping new climbers transition from gym to crag (Catch us at
+                Shelf Road Craggin'!)
+              </li>
+            </ul>
+          </Box>
+        </Typography>
+      </div>
       {renderOrganizers()}
     </Container>
   );

@@ -35,7 +35,7 @@ const Home = () => {
   }, []);
 
   const renderHeaderImage = () => (
-    <HeaderImage src={homepage.img || groupImg} alt="Group of CiC members" />
+    <HeaderImage src={homepage.img} alt="Group of CiC members" />
   );
 
   const renderMission = () => (
