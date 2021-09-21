@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    objectFit: "cover",
+    objectFit: "contain",
+    maxWidth: "300px",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(0),
       paddingBottom: theme.spacing(4),
