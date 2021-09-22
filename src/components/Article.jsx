@@ -22,7 +22,7 @@ const Article = (props) => {
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography variant="h5" component="div">
+        <Typography variant="h6" component="div">
           {title}
         </Typography>
         <Typography variant="body2">{date}</Typography>
