@@ -62,15 +62,27 @@ const About = () => {
   }, []);
 
   const renderOrganizers = () =>
-    organizers.map((org) => (
-      <Fragment>
-        <Organizer
-          name={org.name}
-          description={org.description}
-          src={org.img}
-        />
-      </Fragment>
-    ));
+    organizers
+      .sort(function (a, b) {
+        var nameA = a.name.toUpperCase();
+        var nameB = b.name.toUpperCase();
+        if (nameA > nameB) {
+          return -1;
+        }
+        if (nameA < nameB) {
+          return 1;
+        }
+        return 0;
+      })
+      .map((org) => (
+        <Fragment>
+          <Organizer
+            name={org.name}
+            description={org.description}
+            src={org.img}
+          />
+        </Fragment>
+      ));
 
   const renderArticles = () => {
     return (
