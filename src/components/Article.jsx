@@ -31,9 +31,6 @@ const Article = (props) => {
           <Box fontWeight="fontWeightMedium">{title}</Box>
         </Typography>
         <Typography variant="body2">{date}</Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {description}
-        </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">
