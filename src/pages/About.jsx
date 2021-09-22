@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
   intro: {
     margin: theme.spacing(8),
     [theme.breakpoints.down("sm")]: {
+      margin: theme.spacing(4),
+    },
+    [theme.breakpoints.down("xs")]: {
       margin: theme.spacing(2),
     },
   },
@@ -29,14 +32,46 @@ const useStyles = makeStyles((theme) => ({
   list: {
     margin: theme.spacing(2),
     display: "flex",
-    justifyContent: "center",
+    marginLeft: theme.spacing(8),
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
   },
   cards: {
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    marginLeft: theme.spacing(8),
     flexWrap: "wrap",
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
+  },
+  orgContainer: {
+    marginLeft: theme.spacing(8),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
+  },
+  orgTitle: {
+    marginTop: theme.spacing(6),
+    marginLeft: theme.spacing(8),
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
+  },
+  lessThanYear: {
+    marginLeft: theme.spacing(8),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
+  },
+  readAboutUs: {
+    marginLeft: theme.spacing(8),
+    marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(2),
+    },
   },
 }));
 
@@ -87,7 +122,7 @@ const About = () => {
   const renderArticles = () => {
     return (
       <Fragment>
-        <Typography align="center" variant="h6">
+        <Typography className={classes.readAboutUs} variant="h6">
           Read about us!
         </Typography>
         <div className={classes.cards}>
@@ -120,12 +155,12 @@ const About = () => {
           climbers a night.
         </Box>
       </Typography>
-      <Typography align="center" variant="h6">
+      <Typography className={classes.lessThanYear} variant="h6">
         <Box>In less than a year, what have we been up to?</Box>
       </Typography>
       <div className={classes.list}>
         <Typography>
-          <Box sx={{ textAlign: "center" }}>
+          <Box>
             <ul>
               <li>
                 Offering gym membership scholarships for underrepresented
@@ -157,7 +192,10 @@ const About = () => {
         </Typography>
       </div>
       {articles.length > 0 && renderArticles()}
-      {renderOrganizers()}
+      <Typography className={classes.orgTitle} variant="h6">
+        Organizers
+      </Typography>
+      <div className={classes.orgContainer}>{renderOrganizers()}</div>
     </Container>
   );
 };

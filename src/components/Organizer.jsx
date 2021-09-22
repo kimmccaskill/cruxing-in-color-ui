@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    padding: theme.spacing(4),
+    paddingTop: theme.spacing(4),
     marginBottom: theme.spacing(2),
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
   img: {
     objectFit: "contain",
     maxWidth: "300px",
-    // [theme.breakpoints.down("sm")]: {
-    //   padding: theme.spacing(0),
-    //   paddingBottom: theme.spacing(4),
-    // },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0),
+      paddingBottom: theme.spacing(4),
+    },
     [theme.breakpoints.down("xs")]: {
       width: "-webkit-fill-available",
     },
@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
   descriptionBox: {
     backgroundColor: "#f5f5f5",
     padding: theme.spacing(6),
-    // [theme.breakpoints.down("sm")]: {
-    //   padding: theme.spacing(0),
-    // },
+    [theme.breakpoints.down("sm")]: {
+      padding: theme.spacing(0),
+    },
   },
   name: {
     paddingBottom: theme.spacing(4),
