@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Box,
   Card,
   CardActions,
   CardContent,
@@ -12,7 +13,11 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   card: {
     width: "300px",
+    height: "200px",
     margin: theme.spacing(1),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 }));
 
@@ -22,8 +27,8 @@ const Article = (props) => {
   return (
     <Card className={classes.card}>
       <CardContent>
-        <Typography variant="h6" component="div">
-          {title}
+        <Typography variant="body1" component="div">
+          <Box fontWeight="fontWeightMedium">{title}</Box>
         </Typography>
         <Typography variant="body2">{date}</Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
