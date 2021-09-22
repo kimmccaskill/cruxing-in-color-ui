@@ -7,22 +7,20 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     padding: theme.spacing(4),
     marginBottom: theme.spacing(2),
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-    },
-    [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
     },
   },
   img: {
     objectFit: "contain",
     maxWidth: "300px",
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(0),
-      paddingBottom: theme.spacing(4),
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   padding: theme.spacing(0),
+    //   paddingBottom: theme.spacing(4),
+    // },
     [theme.breakpoints.down("xs")]: {
       width: "-webkit-fill-available",
     },
@@ -30,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
   descriptionBox: {
     backgroundColor: "#f5f5f5",
     padding: theme.spacing(6),
-    [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(0),
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   padding: theme.spacing(0),
+    // },
   },
   name: {
     paddingBottom: theme.spacing(4),
