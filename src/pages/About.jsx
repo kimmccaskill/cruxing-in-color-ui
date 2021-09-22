@@ -3,6 +3,7 @@ import axios from "axios";
 import { Container, Typography, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Organizer from "../components/Organizer";
+import Article from "../components/Article";
 import Logo from "../images/logo-no-words.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,20 +32,33 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  cards: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
 }));
 
 const About = () => {
   const [organizers, setOrganizers] = useState([]);
+  const [articles, setArticles] = useState([]);
   const classes = useStyles();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchOrganizers = async () => {
       const result = await axios("https://strapi-cic.herokuapp.com/organizers");
 
       setOrganizers(result.data);
     };
-
-    fetchData();
+    const fetchArticles = async () => {
+      const articleResults = await axios(
+        "https://strapi-cic.herokuapp.com/articles"
+      );
+      setArticles(articleResults.data);
+    };
+    fetchOrganizers();
+    fetchArticles();
   }, []);
 
   const renderOrganizers = () =>
@@ -57,6 +71,26 @@ const About = () => {
         />
       </Fragment>
     ));
+
+  const renderArticles = () => {
+    return (
+      <Fragment>
+        <Typography align="center" variant="h6">
+          Read about us!
+        </Typography>
+        <div className={classes.cards}>
+          {articles.map((article) => (
+            <Article
+              title={article.title}
+              date={article.date}
+              description={article.description}
+              link={article.link}
+            />
+          ))}
+        </div>
+      </Fragment>
+    );
+  };
 
   return (
     <Container className={classes.root} maxWidth="lg">
@@ -110,6 +144,7 @@ const About = () => {
           </Box>
         </Typography>
       </div>
+      {articles.length > 0 && renderArticles()}
       {renderOrganizers()}
     </Container>
   );
