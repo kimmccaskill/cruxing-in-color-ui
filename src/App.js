@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import ReactGA from "react-ga";
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#f5f5f5",
   },
 }));
+
+const TRACKING_ID = "G-XCXEB9HL5J";
+ReactGA.initialize(TRACKING_ID);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   const classes = useStyles();
