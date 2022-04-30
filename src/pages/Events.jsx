@@ -35,7 +35,6 @@ const Events = () => {
 
   useEffect(() => {
     const localStorageEvents = window.localStorage.getItem("events");
-    setEvents(JSON.parse(localStorageEvents));
 
     if (!localStorageEvents) {
       const fetchData = async () => {
@@ -44,6 +43,8 @@ const Events = () => {
         setEvents(result.data);
       };
       fetchData();
+    } else {
+      setEvents(JSON.parse(localStorageEvents));
     }
   }, []);
 
