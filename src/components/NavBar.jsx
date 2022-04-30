@@ -148,7 +148,7 @@ const NavBar = () => {
   return (
     <AppBar position="sticky" color="default" elevation={0}>
       <Toolbar>
-        <Link to="/home" underline="none" className={classes.homeLink}>
+        <Link href="/home" underline="none" className={classes.homeLink}>
           <Typography variant="h6" className={classes.title}>
             Cruxing in Color
           </Typography>
