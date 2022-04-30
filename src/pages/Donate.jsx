@@ -1,10 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import axios from 'axios';
-import { Container, Typography, Paper } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import ImageWithDescBox from '../components/ImageWithDescBox';
-import donateGear from '../images/donate1.jpg';
-import donateMoney from '../images/donate2.jpg';
+import React, { useState, useEffect, Fragment } from "react";
+import axios from "axios";
+import { Container, Typography, Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import ImageWithDescBox from "../components/ImageWithDescBox";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +17,7 @@ const Donate = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios('https://strapi-cic.herokuapp.com/donations');
+      const result = await axios("https://strapi-cic.herokuapp.com/donations");
 
       setDonations(result.data);
     };
@@ -29,15 +28,17 @@ const Donate = () => {
   const renderDonations = () =>
     donations.map((dono) => (
       <Fragment>
-        <ImageWithDescBox
-          src={dono.image}
-          alt="Climbers"
-          title={dono.title}
-          description={dono.description}
-          imageSide={dono.imageSide}
-          buttonTitle={dono.buttonTitle}
-          buttonLink={dono.buttonLink}
-        />
+        <Fade bottom>
+          <ImageWithDescBox
+            src={dono.image}
+            alt="Climbers"
+            title={dono.title}
+            description={dono.description}
+            imageSide={dono.imageSide}
+            buttonTitle={dono.buttonTitle}
+            buttonLink={dono.buttonLink}
+          />
+        </Fade>
       </Fragment>
     ));
 

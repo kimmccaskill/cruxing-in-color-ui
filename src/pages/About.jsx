@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Organizer from "../components/Organizer";
 import Article from "../components/Article";
 import Logo from "../images/logo-no-words.png";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -111,28 +112,34 @@ const About = () => {
       })
       .map((org) => (
         <Fragment>
-          <Organizer
-            name={org.name}
-            description={org.description}
-            src={org.img}
-          />
+          <Fade bottom>
+            <Organizer
+              name={org.name}
+              description={org.description}
+              src={org.img}
+            />
+          </Fade>
         </Fragment>
       ));
 
   const renderArticles = () => {
     return (
       <Fragment>
-        <Typography className={classes.readAboutUs} variant="h6">
-          Read about us!
-        </Typography>
+        <Fade bottom>
+          <Typography className={classes.readAboutUs} variant="h6">
+            Read about us!
+          </Typography>
+        </Fade>
         <div className={classes.cards}>
           {articles.map((article) => (
-            <Article
-              title={article.title}
-              date={article.date}
-              description={article.description}
-              link={article.link}
-            />
+            <Fade bottom>
+              <Article
+                title={article.title}
+                date={article.date}
+                description={article.description}
+                link={article.link}
+              />
+            </Fade>
           ))}
         </div>
       </Fragment>
@@ -141,56 +148,60 @@ const About = () => {
 
   return (
     <Container className={classes.root} maxWidth="lg">
-      <div className={classes.logoContainer}>
-        <img className={classes.logo} src={Logo} alt="Cruxing in Color" />
-      </div>
-      <Typography className={classes.intro} align="center" variant="h6">
-        <Box>
-          CIC was born out of a small meetup group organized by Jalen Bazile
-          called Melanin Climbers of Colorado that began connecting in December
-          2019. In September 2020, Shara revived and rebranded the account as
-          Cruxing in Color and paired up with Menesha and Enrique. Since then,
-          CIC has expanded its vision and reach and the group has been hosting
-          meetups around the greater Denver area averaging around 60 to 80
-          climbers a night.
-        </Box>
-      </Typography>
-      <Typography className={classes.lessThanYear} variant="h6">
-        <Box>In less than a year, what have we been up to?</Box>
-      </Typography>
-      <div className={classes.list}>
-        <Typography>
+      <Fade bottom>
+        <div className={classes.logoContainer}>
+          <img className={classes.logo} src={Logo} alt="Cruxing in Color" />
+        </div>
+        <Typography className={classes.intro} align="center" variant="h6">
           <Box>
-            <ul>
-              <li>
-                Offering gym membership scholarships for underrepresented
-                climbers
-              </li>
-              <li>
-                Partnering with industry leaders to provide our community with
-                high quality gear
-              </li>
-              <li>
-                Amplifying BIPOC voices by highlighting climbers of all levels
-                in our community
-              </li>
-              <li>
-                Hosting monthly meetups and clinics at gyms including discounted
-                day rates and free rentals
-              </li>
-              <li>
-                Leveraging Q&As and "Terminology Tuesday" to democratize
-                information access{" "}
-              </li>
-              <li>Organizing stewardship days at local crags </li>
-              <li>
-                Helping new climbers transition from gym to crag (Catch us at
-                Shelf Road Craggin'!)
-              </li>
-            </ul>
+            CIC was born out of a small meetup group organized by Jalen Bazile
+            called Melanin Climbers of Colorado that began connecting in
+            December 2019. In September 2020, Shara revived and rebranded the
+            account as Cruxing in Color and paired up with Menesha and Enrique.
+            Since then, CIC has expanded its vision and reach and the group has
+            been hosting meetups around the greater Denver area averaging around
+            60 to 80 climbers a night.
           </Box>
         </Typography>
-      </div>
+        <div>
+          <Typography className={classes.lessThanYear} variant="h6">
+            <Box>In less than a year, what have we been up to?</Box>
+          </Typography>
+          <div className={classes.list}>
+            <Typography>
+              <Box>
+                <ul>
+                  <li>
+                    Offering gym membership scholarships for underrepresented
+                    climbers
+                  </li>
+                  <li>
+                    Partnering with industry leaders to provide our community
+                    with high quality gear
+                  </li>
+                  <li>
+                    Amplifying BIPOC voices by highlighting climbers of all
+                    levels in our community
+                  </li>
+                  <li>
+                    Hosting monthly meetups and clinics at gyms including
+                    discounted day rates and free rentals
+                  </li>
+                  <li>
+                    Leveraging Q&As and "Terminology Tuesday" to democratize
+                    information access{" "}
+                  </li>
+                  <li>Organizing stewardship days at local crags </li>
+                  <li>
+                    Helping new climbers transition from gym to crag (Catch us
+                    at Shelf Road Craggin'!)
+                  </li>
+                </ul>
+              </Box>
+            </Typography>
+          </div>
+        </div>
+      </Fade>
       {articles.length > 0 && renderArticles()}
       <Typography className={classes.orgTitle} variant="h6">
         Organizers

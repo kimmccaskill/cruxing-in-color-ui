@@ -3,8 +3,8 @@ import axios from "axios";
 import { Container, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import HeaderImage from "../components/HeaderImage";
-import groupImg from "../images/home-img.png";
 import EmbedSocialWidget from "../components/EmbedSocialWidget";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,25 +39,29 @@ const Home = () => {
   );
 
   const renderMission = () => (
-    <Container className={classes.mission} maxWidth="md">
-      <Typography className={classes.textBlock} variant="h5" align="center">
-        {homepage.textBlock1}
-      </Typography>
-      {homepage.textBlock2 && (
+    <Fade bottom>
+      <Container className={classes.mission} maxWidth="md">
         <Typography className={classes.textBlock} variant="h5" align="center">
-          {homepage.textBlock2}
+          {homepage.textBlock1}
         </Typography>
-      )}
-    </Container>
+        {homepage.textBlock2 && (
+          <Typography className={classes.textBlock} variant="h5" align="center">
+            {homepage.textBlock2}
+          </Typography>
+        )}
+      </Container>
+    </Fade>
   );
 
   return (
     <Container className={classes.root} maxWidth={false}>
       {renderHeaderImage()}
       {homepage.textBlock1 && renderMission()}
-      <div className={classes.instagram}>
-        <EmbedSocialWidget />
-      </div>
+      <Fade bottom>
+        <div className={classes.instagram}>
+          <EmbedSocialWidget />
+        </div>
+      </Fade>
     </Container>
   );
 };

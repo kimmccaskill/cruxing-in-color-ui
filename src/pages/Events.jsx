@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import HeaderImage from "../components/HeaderImage";
 import Event from "../components/Event";
 import image from "../images/events-img.png";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,13 +34,17 @@ const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios("https://strapi-cic.herokuapp.com/events");
+    const localStorageEvents = window.localStorage.getItem("events");
+    setEvents(JSON.parse(localStorageEvents));
 
-      setEvents(result.data);
-    };
-
-    fetchData();
+    if (!localStorageEvents) {
+      const fetchData = async () => {
+        const result = await axios("https://strapi-cic.herokuapp.com/events");
+        window.localStorage.setItem("events", JSON.stringify(result.data));
+        setEvents(result.data);
+      };
+      fetchData();
+    }
   }, []);
 
   const renderEvents = () => {
@@ -61,50 +66,50 @@ const Events = () => {
 
     return (
       <Container className={classes.root} maxWidth="lg">
-        <Typography className={classes.title} variant="h4" gutterBottom>
-          Upcoming Events
-        </Typography>
-        <div className={classes.eventsContainer}>
-          {futureEvents.map((event) => {
-            const date = DateTime.fromISO(event.date);
-            console.log("DATE", date);
-            return (
-              <Event
-                date={date.toLocaleString(DateTime.DATE_FULL)}
-                time={date.toLocaleString(DateTime.TIME_SIMPLE)}
-                title={event.title}
-                location={event.location}
-                description={event.description}
-                buttonTitle={event.buttonTitle}
-                buttonLink={event.buttonLink}
-              />
-            );
-          })}
-          {futureEvents.length === 0 && (
-            <Typography>
-              There aren't any upcoming events. Be sure to check back soon!
-            </Typography>
-          )}
-        </div>
-        <Typography className={classes.title} variant="h4" gutterBottom>
-          Past Events
-        </Typography>
-        <div className={classes.eventsContainer}>
-          {pastEvents
-            .map((event) => {
+        <Fade bottom>
+          <Typography className={classes.title} variant="h4" gutterBottom>
+            Upcoming Events
+          </Typography>
+          <div className={classes.eventsContainer}>
+            {futureEvents.map((event) => {
               const date = DateTime.fromISO(event.date);
               return (
                 <Event
                   date={date.toLocaleString(DateTime.DATE_FULL)}
+                  time={date.toLocaleString(DateTime.TIME_SIMPLE)}
                   title={event.title}
                   location={event.location}
+                  description={event.description}
                   buttonTitle={event.buttonTitle}
                   buttonLink={event.buttonLink}
                 />
               );
-            })
-            .reverse()}
-        </div>
+            })}
+            {futureEvents.length === 0 && (
+              <Typography>
+                There aren't any upcoming events. Be sure to check back soon!
+              </Typography>
+            )}
+          </div>
+
+          <Typography className={classes.title} variant="h4" gutterBottom>
+            Past Events
+          </Typography>
+          <div className={classes.eventsContainer}>
+            {pastEvents
+              .map((event) => {
+                const date = DateTime.fromISO(event.date);
+                return (
+                  <Event
+                    date={date.toLocaleString(DateTime.DATE_FULL)}
+                    title={event.title}
+                    location={event.location}
+                  />
+                );
+              })
+              .reverse()}
+          </div>
+        </Fade>
       </Container>
     );
   };

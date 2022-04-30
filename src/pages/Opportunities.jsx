@@ -3,8 +3,7 @@ import axios from "axios";
 import { Container, Typography, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageWithDescBox from "../components/ImageWithDescBox";
-import scholarshipImg from "../images/scholarship-img.png";
-import needGearImg from "../images/opportunities.jpg";
+import Fade from "react-reveal/Fade";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,15 +30,17 @@ const Opportunities = () => {
   const renderOpportunities = () =>
     opportunities.map((opportunity) => (
       <Fragment>
-        <ImageWithDescBox
-          src={opportunity.image}
-          alt="Climbers"
-          title={opportunity.title}
-          description={opportunity.description}
-          imageSide={opportunity.imageSide}
-          buttonTitle={opportunity.buttonTitle}
-          buttonLink={opportunity.buttonLink}
-        />
+        <Fade bottom>
+          <ImageWithDescBox
+            src={opportunity.image}
+            alt="Climbers"
+            title={opportunity.title}
+            description={opportunity.description}
+            imageSide={opportunity.imageSide}
+            buttonTitle={opportunity.buttonTitle}
+            buttonLink={opportunity.buttonLink}
+          />
+        </Fade>
       </Fragment>
     ));
 
